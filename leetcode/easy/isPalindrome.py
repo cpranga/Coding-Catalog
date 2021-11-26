@@ -1,12 +1,13 @@
-def isPalindrome(val):
-    if val < 0:
+def isPalindrome(x):
+    if x < 0:
         return False
-    val = str(val)
-    len_val = len(val)
-    for i in range(len_val // 2):
-        if val[i] != val[len_val - 1 - i]:
-            return False
-    return True
+    reversed = 0
+    copy = x
+    while copy > 0:
+        reversed *= 10
+        reversed += (copy % 10)
+        copy //= 10
+    return reversed == x
 
 if __name__ == "__main__":
     testcases = [(123, False)]
