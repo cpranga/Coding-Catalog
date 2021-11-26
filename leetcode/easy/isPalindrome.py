@@ -1,18 +1,12 @@
 def isPalindrome(val):
     if val < 0:
         return False
-    stack = []
-    queue = []
-    while val > 0:
-        pop = val % 10
-        val = val // 10
-        stack.append(pop)
-        queue.append(pop)
-    
-    while stack or queue:
-        if stack.pop(0) != queue.pop():
+    val = str(val)
+    len_val = len(val)
+    for i in range(len_val // 2):
+        if val[i] != val[len_val - 1 - i]:
             return False
-    return (not stack) == (not queue)
+    return True
 
 if __name__ == "__main__":
     testcases = [(123, False)]
